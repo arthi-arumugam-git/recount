@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recount"
+version = "0.1.0"
+description = "Find evaluation scores, token counts and costs that come out wrong while nothing raises."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Arthi Arumugam" }]
+dependencies = []
+
+[project.scripts]
+recount = "recount.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["recount*"]
+
+[tool.setuptools.package-data]
+recount = ["_vendor/*"]

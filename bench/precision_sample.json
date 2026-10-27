@@ -1,0 +1,402 @@
+[
+ {
+  "n": 1,
+  "repo": "confident-ai/deepeval",
+  "commit": "5410e3822dda5f889d5f35de3325a3738004aeb1",
+  "file": "deepeval/metrics/voice/_analysis.py",
+  "line": 58,
+  "rule": "empty-input-returns-number",
+  "label": "benign",
+  "why": "RMS of an empty signal is 0; that is the right value."
+ },
+ {
+  "n": 2,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/llms/watsonx/completion/transformation.py",
+  "line": 320,
+  "rule": "cache-read-never-read",
+  "label": "false alarm",
+  "why": "watsonx reports no Anthropic-style cache, so there is nothing to add."
+ },
+ {
+  "n": 3,
+  "repo": "truera/trulens",
+  "commit": "534c93a0b1daf5d99904f31ccb743b621c8d9c35",
+  "file": "src/feedback/trulens/feedback/groundtruth.py",
+  "line": 1190,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "The check decides whether to threshold; integer 0/1 labels need no threshold."
+ },
+ {
+  "n": 4,
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "commit": "cb2e67912618bb0080b12b9679ea1f63e0f2d5d3",
+  "file": "src/inspect_evals/cti_realm/docker/kusto_init/load_data.py",
+  "line": 129,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "Progress rate printed by a data-loading script."
+ },
+ {
+  "n": 5,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/agents/pydantic_ai/openinference_model_wrapper.py",
+  "line": 280,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "benign",
+  "why": "A zero audio-token count is left off a details dict; nothing is misreported."
+ },
+ {
+  "n": 6,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/integrations/otel/mappers/utils.py",
+  "line": 80,
+  "rule": "max-one-denominator",
+  "label": "false alarm",
+  "why": "An attribute budget, not a metric."
+ },
+ {
+  "n": 7,
+  "repo": "huggingface/lighteval",
+  "commit": "7fa19dc6f53a713ba8bb6541e7ed66dad2e24fd7",
+  "file": "src/lighteval/metrics/imports/data_stats_utils.py",
+  "line": 123,
+  "rule": "empty-input-returns-number",
+  "label": "benign",
+  "why": "Density of an empty text; never reaches a reported score in practice."
+ },
+ {
+  "n": 8,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/harness/handlers/tool_loop_handler.py",
+  "line": 143,
+  "rule": "cost-error-swallowed",
+  "label": "real",
+  "why": "An unpriced model's tool-loop cost becomes 0.0 with no log, so the run reads as free."
+ },
+ {
+  "n": 9,
+  "repo": "EleutherAI/lm-evaluation-harness",
+  "commit": "d6de81643928d653435c431bae19945d41d32520",
+  "file": "lm_eval/tasks/score/non_greedy_summarizer.py",
+  "line": 114,
+  "rule": "guarded-division-returns-number",
+  "label": "debatable",
+  "why": "Consistency rate is 0.0 when each question has one response, which reads as fully inconsistent."
+ },
+ {
+  "n": 10,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/api/types/PromptInvocationParameters.py",
+  "line": 236,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "Pydantic converts an int to float on these fields before the check runs."
+ },
+ {
+  "n": 11,
+  "repo": "EleutherAI/lm-evaluation-harness",
+  "commit": "d6de81643928d653435c431bae19945d41d32520",
+  "file": "lm_eval/tasks/score/non_greedy_summarizer.py",
+  "line": 91,
+  "rule": "guarded-division-returns-number",
+  "label": "debatable",
+  "why": "Same as 9, for the second consistency metric."
+ },
+ {
+  "n": 12,
+  "repo": "crewAIInc/crewAI",
+  "commit": "c5f996ab6d9105cab38109235809232e9eeef008",
+  "file": "lib/crewai/src/crewai/types/usage_metrics.py",
+  "line": 182,
+  "rule": "total-excludes-cache",
+  "label": "false alarm",
+  "why": "prompt_tokens comes from a helper that already folds the cache in."
+ },
+ {
+  "n": 13,
+  "repo": "agno-agi/agno",
+  "commit": "3378e6435a9d9373f09f9354a94b8c3df658354e",
+  "file": "libs/agno/agno/models/azure/claude.py",
+  "line": 132,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "real",
+  "why": "temperature=0 is never sent, so Anthropic's default of 1.0 applies; the parent class uses 'is not None'."
+ },
+ {
+  "n": 14,
+  "repo": "truera/trulens",
+  "commit": "534c93a0b1daf5d99904f31ccb743b621c8d9c35",
+  "file": "src/core/trulens/core/otel/client_hooks/tracing.py",
+  "line": 376,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "benign",
+  "why": "A zero cost is left off the span rather than recorded as 0."
+ },
+ {
+  "n": 15,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/api/types/PromptInvocationParameters.py",
+  "line": 59,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "Same as 10."
+ },
+ {
+  "n": 16,
+  "repo": "agno-agi/agno",
+  "commit": "3378e6435a9d9373f09f9354a94b8c3df658354e",
+  "file": "libs/agno/agno/os/routers/evals/utils.py",
+  "line": 85,
+  "rule": "or-default-replaces-zero",
+  "label": "benign",
+  "why": "A judge threshold of 0 is not a meaningful setting on this scale."
+ },
+ {
+  "n": 17,
+  "repo": "UKGovernmentBEIS/inspect_ai",
+  "commit": "71e00d28fc675a752891f559081926aaed4b0c80",
+  "file": "src/inspect_ai/scorer/_metrics/krippendorff.py",
+  "line": 194,
+  "rule": "empty-input-returns-number",
+  "label": "debatable",
+  "why": "Krippendorff's alpha is undefined when expected disagreement is 0; 1.0 is one convention."
+ },
+ {
+  "n": 18,
+  "repo": "deepset-ai/haystack",
+  "commit": "7a71a93731162ba15057960b96a190f8771301bd",
+  "file": "haystack/components/evaluators/document_ndcg.py",
+  "line": 128,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "nDCG is 0 when there are no relevant documents; a standard convention."
+ },
+ {
+  "n": 19,
+  "repo": "deepset-ai/haystack",
+  "commit": "7a71a93731162ba15057960b96a190f8771301bd",
+  "file": "haystack/components/generators/chat/openai.py",
+  "line": 752,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "false alarm",
+  "why": "logprobs is a list, not a number."
+ },
+ {
+  "n": 20,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/llms/anthropic/pass_through/responses_adapters/handler.py",
+  "line": 122,
+  "rule": "parameter-accepted-and-ignored",
+  "label": "debatable",
+  "why": "top_k is dropped on the way to the Responses API, which has no top_k, but without a warning."
+ },
+ {
+  "n": 21,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/router_strategy/complexity_router/complexity_router.py",
+  "line": 3275,
+  "rule": "unknown-model-priced-at-zero",
+  "label": "debatable",
+  "why": "A model with no known cost scores as the cheapest in routing."
+ },
+ {
+  "n": 22,
+  "repo": "pydantic/pydantic-ai",
+  "commit": "24e03f1bae46dae27796ddb8aaae912cef0e1668",
+  "file": "pydantic_ai_slim/pydantic_ai/usage.py",
+  "line": 232,
+  "rule": "cache-read-never-read",
+  "label": "false alarm",
+  "why": "pydantic-ai's input_tokens already includes cached tokens."
+ },
+ {
+  "n": 23,
+  "repo": "EleutherAI/lm-evaluation-harness",
+  "commit": "d6de81643928d653435c431bae19945d41d32520",
+  "file": "lm_eval/tasks/cnn_dailymail/utils.py",
+  "line": 77,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "ROUGE over an empty reference list; not reachable in normal runs."
+ },
+ {
+  "n": 24,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/api/helpers/playground_clients.py",
+  "line": 2745,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "Input type coerces to float."
+ },
+ {
+  "n": 25,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/api/types/PromptInvocationParameters.py",
+  "line": 176,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "Same as 10."
+ },
+ {
+  "n": 26,
+  "repo": "pydantic/pydantic-ai",
+  "commit": "24e03f1bae46dae27796ddb8aaae912cef0e1668",
+  "file": "pydantic_ai_slim/pydantic_ai/_cache_health.py",
+  "line": 179,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "Documented: cache hit ratio is 0.0 with no input tokens."
+ },
+ {
+  "n": 27,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/harness/endpoint.py",
+  "line": 293,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "benign",
+  "why": "Initial value is already 0."
+ },
+ {
+  "n": 28,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/llms/github_copilot/chat/transformation.py",
+  "line": 32,
+  "rule": "parameter-accepted-and-ignored",
+  "label": "debatable",
+  "why": "The constructor accepts api_key and api_base and ignores them; the per-call path takes them instead."
+ },
+ {
+  "n": 29,
+  "repo": "comet-ml/opik",
+  "commit": "76a0394e44f54404f7e24918018d875f800ed6da",
+  "file": "sdks/python/src/opik/llm_usage/opik_usage.py",
+  "line": 189,
+  "rule": "net-input-as-gross",
+  "label": "unclear",
+  "why": "Depends on how the type-safe usage maps each provider; not resolved."
+ },
+ {
+  "n": 30,
+  "repo": "EleutherAI/lm-evaluation-harness",
+  "commit": "d6de81643928d653435c431bae19945d41d32520",
+  "file": "lm_eval/tasks/graphwalks/utils.py",
+  "line": 130,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "Precision with nothing sampled; recall and F1 are 0 anyway."
+ },
+ {
+  "n": 31,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/proxy/_experimental/out/_next/static/chunks/1xhfxnpj90y60.js",
+  "line": 10,
+  "rule": "cache-read-never-read",
+  "label": "false alarm",
+  "why": "A minified JavaScript bundle."
+ },
+ {
+  "n": 32,
+  "repo": "comet-ml/opik",
+  "commit": "76a0394e44f54404f7e24918018d875f800ed6da",
+  "file": "sdks/python/src/opik/evaluation/metrics/conversation/llm_judges/user_frustration/metric.py",
+  "line": 270,
+  "rule": "empty-input-returns-number",
+  "label": "real",
+  "why": "No verdicts reports 0.0, the same as 'not frustrated at all'."
+ },
+ {
+  "n": 33,
+  "repo": "openai/evals",
+  "commit": "8eac7a7de5215c907fbddc30efdaf316913eccdd",
+  "file": "evals/elsuite/cant_do_that_anymore/eval.py",
+  "line": 140,
+  "rule": "guarded-division-returns-number",
+  "label": "debatable",
+  "why": "Variant impact factor is 0 when the baseline proportion is 0."
+ },
+ {
+  "n": 34,
+  "repo": "confident-ai/deepeval",
+  "commit": "5410e3822dda5f889d5f35de3325a3738004aeb1",
+  "file": "deepeval/optimizer/algorithms/miprov2/miprov2.py",
+  "line": 521,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "A display table."
+ },
+ {
+  "n": 35,
+  "repo": "explodinggradients/ragas",
+  "commit": "298b68274234c060deacab3cf5fb52aa3a20e885",
+  "file": "src/ragas/metrics/_tool_call_accuracy.py",
+  "line": 70,
+  "rule": "empty-input-returns-number",
+  "label": "benign",
+  "why": "Predicting arguments where none were expected is correctly a 0."
+ },
+ {
+  "n": 36,
+  "repo": "UKGovernmentBEIS/inspect_ai",
+  "commit": "71e00d28fc675a752891f559081926aaed4b0c80",
+  "file": "src/inspect_ai/model/_providers/grok.py",
+  "line": 905,
+  "rule": "cache-read-never-read",
+  "label": "false alarm",
+  "why": "This provider subtracts and records the cache correctly."
+ },
+ {
+  "n": 37,
+  "repo": "Arize-ai/phoenix",
+  "commit": "14c193cfad309198168e3c2db522db0ec770a557",
+  "file": "src/phoenix/server/api/helpers/playground_clients.py",
+  "line": 450,
+  "rule": "isinstance-float-drops-int",
+  "label": "false alarm",
+  "why": "Same as 24."
+ },
+ {
+  "n": 38,
+  "repo": "BerriAI/litellm",
+  "commit": "cfe0100e1fca613e7b1af27dd1fe4807ca4d1d1a",
+  "file": "litellm/proxy/common_request_processing.py",
+  "line": 2357,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "benign",
+  "why": "max_tokens of 0 is not a usable setting."
+ },
+ {
+  "n": 39,
+  "repo": "deepset-ai/haystack",
+  "commit": "7a71a93731162ba15057960b96a190f8771301bd",
+  "file": "haystack/components/generators/chat/openai_responses.py",
+  "line": 956,
+  "rule": "truthiness-guard-drops-zero",
+  "label": "false alarm",
+  "why": "Same as 19."
+ },
+ {
+  "n": 40,
+  "repo": "livekit/agents",
+  "commit": "3a6248cb79fd04863ec8a1f86b2260535d0876eb",
+  "file": "livekit-agents/livekit/agents/voice/transcription/synchronizer.py",
+  "line": 74,
+  "rule": "guarded-division-returns-number",
+  "label": "benign",
+  "why": "Speaking rate in a synchroniser, not a reported metric."
+ }
+]

@@ -1,0 +1,570 @@
+[
+ {
+  "repo": "pipecat-ai/pipecat",
+  "pr": 5163,
+  "class": 1,
+  "title": "Count cached input tokens in total_tokens for Anthropic and Bedrock",
+  "files": [
+   "src/pipecat/metrics/metrics.py",
+   "src/pipecat/services/anthropic/llm.py",
+   "src/pipecat/services/aws/llm.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/pipecat/services/anthropic/llm.py",
+    "total-excludes-cache"
+   ],
+   [
+    "src/pipecat/services/aws/llm.py",
+    "total-excludes-cache"
+   ]
+  ],
+  "caught": [
+   [
+    "src/pipecat/services/anthropic/llm.py",
+    594,
+    "total-excludes-cache"
+   ],
+   [
+    "src/pipecat/services/aws/llm.py",
+    661,
+    "total-excludes-cache"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2042,
+  "class": 6,
+  "title": "Stop penalising optional parameters at their schema default",
+  "files": [
+   "src/inspect_evals/bfcl/score/scorer.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2036,
+  "class": 3,
+  "title": "Restore the denominator on confidence and apologize_rate",
+  "files": [
+   "src/inspect_evals/sycophancy/scorers.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/inspect_evals/sycophancy/scorers.py",
+    "guarded-division-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/inspect_evals/sycophancy/scorers.py",
+    104,
+    "guarded-division-returns-number"
+   ],
+   [
+    "src/inspect_evals/sycophancy/scorers.py",
+    122,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "same_file_other": [
+   [
+    "src/inspect_evals/sycophancy/scorers.py",
+    132,
+    "empty-input-returns-number"
+   ]
+  ],
+  "fix_flagged": [
+   [
+    "src/inspect_evals/sycophancy/scorers.py",
+    115,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "livekit/agents",
+  "pr": 6663,
+  "class": 1,
+  "title": "Count cached tokens in Bedrock's prompt_tokens",
+  "files": [
+   "livekit-plugins/livekit-plugins-aws/livekit/plugins/aws/llm.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "livekit-plugins/livekit-plugins-aws/livekit/plugins/aws/llm.py",
+    "cache-creation-ignored"
+   ]
+  ],
+  "caught": [
+   [
+    "livekit-plugins/livekit-plugins-aws/livekit/plugins/aws/llm.py",
+    298,
+    "cache-creation-ignored"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "roboflow/supervision",
+  "pr": 2468,
+  "class": 5,
+  "title": "Track prediction-only classes in Recall",
+  "files": [
+   "src/supervision/metrics/recall.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "deepset-ai/haystack-core-integrations",
+  "pr": 3717,
+  "class": 1,
+  "title": "Include cached tokens in the OpenAI-compatible prompt_tokens",
+  "files": [
+   "integrations/anthropic/src/haystack_integrations/components/generators/anthropic/chat/utils.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "integrations/anthropic/src/haystack_integrations/components/generators/anthropic/chat/utils.py",
+    "net-input-as-gross"
+   ]
+  ],
+  "caught": [
+   [
+    "integrations/anthropic/src/haystack_integrations/components/generators/anthropic/chat/utils.py",
+    367,
+    "net-input-as-gross"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "pydantic/genai-prices",
+  "pr": 520,
+  "class": 10,
+  "title": "Add AWS Bedrock prices for Writer Palmyra X4 and X5",
+  "files": [
+   "packages/js/src/data.ts",
+   "packages/python/genai_prices/data.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2097,
+  "class": 7,
+  "title": "Stop scoring truncated reasoning as the model's answer",
+  "files": [
+   "src/inspect_evals/livebench/scorer.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "roboflow/inference",
+  "pr": 2745,
+  "class": 13,
+  "title": "Stop usage tracking failures from failing the inference call",
+  "files": [
+   "inference/usage_tracking/collector.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "mcp-use/mcp-use",
+  "pr": 2127,
+  "class": 1,
+  "title": "Count Anthropic cache tokens and stop message_delta erasing usage",
+  "files": [
+   "libraries/typescript/packages/agent/src/llm/providers/anthropic.ts",
+   "libraries/typescript/packages/agent/src/llm/types.ts",
+   "libraries/typescript/packages/agent/src/llm/usage.ts",
+   "libraries/typescript/packages/inspector/src/client/components/chat/trace.ts"
+  ],
+  "resolved_by_fix": [
+   [
+    "libraries/typescript/packages/agent/src/llm/providers/anthropic.ts",
+    "cache-blind-total"
+   ],
+   [
+    "libraries/typescript/packages/agent/src/llm/providers/anthropic.ts",
+    "cache-read-never-read"
+   ]
+  ],
+  "caught": [
+   [
+    "libraries/typescript/packages/agent/src/llm/providers/anthropic.ts",
+    285,
+    "cache-blind-total"
+   ],
+   [
+    "libraries/typescript/packages/agent/src/llm/providers/anthropic.ts",
+    285,
+    "cache-read-never-read"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2123,
+  "class": 3,
+  "title": "Stop reporting a stereotype score built from samples never scored",
+  "files": [
+   "src/inspect_evals/stereoset/stereoset.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/inspect_evals/stereoset/stereoset.py",
+    "guarded-division-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/inspect_evals/stereoset/stereoset.py",
+    102,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "ogx-ai/ogx",
+  "pr": 6415,
+  "class": 12,
+  "title": "Stop counting cached tokens twice in the Anthropic-compat usage",
+  "files": [
+   "scripts/check_file_size.py",
+   "src/ogx/providers/utils/inference/anthropic_translation.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [
+   [
+    "src/ogx/providers/utils/inference/anthropic_translation.py",
+    309,
+    "cache-creation-ignored"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [
+   [
+    "src/ogx/providers/utils/inference/anthropic_translation.py",
+    312,
+    "cache-creation-ignored"
+   ]
+  ],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2174,
+  "class": 3,
+  "title": "Return nan rather than 0.0 when a metric has no samples",
+  "files": [
+   "src/inspect_evals/agentharm/metric.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/inspect_evals/agentharm/metric.py",
+    "empty-input-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/inspect_evals/agentharm/metric.py",
+    137,
+    "empty-input-returns-number"
+   ]
+  ],
+  "same_file_other": [
+   [
+    "src/inspect_evals/agentharm/metric.py",
+    75,
+    "isinstance-float-drops-int"
+   ],
+   [
+    "src/inspect_evals/agentharm/metric.py",
+    108,
+    "empty-input-returns-number"
+   ]
+  ],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "respanai/respan",
+  "pr": 351,
+  "class": null,
+  "title": "Add control cases for the thinking-token fold (tests only)",
+  "result": "not recoverable"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2173,
+  "class": null,
+  "title": "Document what a metric reports when its denominator is empty (docs only)",
+  "result": "no source change (tests, docs or data only)"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2179,
+  "class": 3,
+  "title": "Report nan rather than 0.0 when percentage_of has no samples",
+  "files": [
+   "src/inspect_evals/cyberseceval_4/_score_utils.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/inspect_evals/cyberseceval_4/_score_utils.py",
+    "guarded-division-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/inspect_evals/cyberseceval_4/_score_utils.py",
+    129,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "same_file_other": [
+   [
+    "src/inspect_evals/cyberseceval_4/_score_utils.py",
+    207,
+    "guarded-division-returns-number"
+   ],
+   [
+    "src/inspect_evals/cyberseceval_4/_score_utils.py",
+    233,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "UKGovernmentBEIS/inspect_evals",
+  "pr": 2230,
+  "class": 3,
+  "title": "Mean_of reports nan rather than 0.0 when nothing was averaged",
+  "files": [
+   "src/inspect_evals/utils/metrics.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/inspect_evals/utils/metrics.py",
+    "guarded-division-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/inspect_evals/utils/metrics.py",
+    90,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "dbt-labs/metricflow",
+  "pr": 2114,
+  "class": null,
+  "title": "Keep non-deterministic expressions materialized in the sub-query reducer",
+  "files": [
+   "metricflow/sql/optimizer/rewriting_sub_query_reducer.py",
+   "metricflow_semantics/sql/sql_exprs.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "mistralai/mistral-common",
+  "pr": 289,
+  "class": null,
+  "title": "Keep at least one pixel per axis when resizing an image",
+  "files": [
+   "src/mistral_common/tokens/tokenizers/image.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "truera/trulens",
+  "pr": 2726,
+  "class": null,
+  "title": "Stop reading a judge's stated scale as its rating",
+  "files": [
+   "src/feedback/trulens/feedback/generated.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "pydantic/logfire",
+  "pr": 2162,
+  "class": 10,
+  "title": "Price Bedrock calls under the aws provider",
+  "files": [
+   "logfire/_internal/integrations/llm_providers/anthropic.py",
+   "logfire/_internal/integrations/llm_providers/llm_provider.py",
+   "logfire/_internal/integrations/llm_providers/openai.py",
+   "logfire/_internal/integrations/llm_providers/types.py",
+   "logfire/_internal/integrations/llm_providers/usage.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [
+   [
+    "logfire/_internal/integrations/llm_providers/usage.py",
+    54,
+    "cost-error-swallowed"
+   ]
+  ],
+  "same_file_other": [],
+  "fix_flagged": [
+   [
+    "logfire/_internal/integrations/llm_providers/usage.py",
+    77,
+    "cost-error-swallowed"
+   ],
+   [
+    "logfire/_internal/integrations/llm_providers/usage.py",
+    79,
+    "cost-error-swallowed"
+   ]
+  ],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "truera/trulens",
+  "pr": 2737,
+  "class": null,
+  "title": "Score ground-truth rows in row order, not index-label order",
+  "files": [
+   "src/benchmark/trulens/benchmark/benchmark_frameworks/tru_benchmark_experiment.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "truera/trulens",
+  "pr": 2738,
+  "class": 3,
+  "title": "Report nan, not 0.0, when an IR metric is undefined",
+  "files": [
+   "src/feedback/trulens/feedback/groundtruth.py"
+  ],
+  "resolved_by_fix": [
+   [
+    "src/feedback/trulens/feedback/groundtruth.py",
+    "guarded-division-returns-number"
+   ]
+  ],
+  "caught": [
+   [
+    "src/feedback/trulens/feedback/groundtruth.py",
+    444,
+    "guarded-division-returns-number"
+   ],
+   [
+    "src/feedback/trulens/feedback/groundtruth.py",
+    503,
+    "guarded-division-returns-number"
+   ]
+  ],
+  "same_file_other": [
+   [
+    "src/feedback/trulens/feedback/groundtruth.py",
+    1108,
+    "isinstance-float-drops-int"
+   ]
+  ],
+  "fix_flagged": [],
+  "result": "caught on the fixed lines"
+ },
+ {
+  "repo": "EleutherAI/lm-evaluation-harness",
+  "pr": 4068,
+  "class": null,
+  "title": "Report a sample count that does not depend on metric order",
+  "files": [
+   "lm_eval/evaluator_utils.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "truera/trulens",
+  "pr": 2748,
+  "class": null,
+  "title": "Refuse a score list that does not match the labels",
+  "files": [
+   "src/feedback/trulens/feedback/groundtruth.py"
+  ],
+  "resolved_by_fix": [],
+  "caught": [],
+  "same_file_other": [
+   [
+    "src/feedback/trulens/feedback/groundtruth.py",
+    1131,
+    "isinstance-float-drops-int"
+   ]
+  ],
+  "fix_flagged": [],
+  "result": "missed"
+ },
+ {
+  "repo": "unslothai/unsloth",
+  "pr": 8906,
+  "class": 11,
+  "title": "Pass force_download through to snapshot_download",
+  "result": "not recoverable"
+ }
+]
